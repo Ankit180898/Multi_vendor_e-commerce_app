@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../values/app_color.dart';
 
 //Light Color
@@ -38,6 +39,40 @@ final ThemeData darkThemeData=themeData(darkColor,_darkFocusColor);
 
 ThemeData themeData(ColorScheme colorScheme,Color focusColor){
   return ThemeData(
+    colorScheme: colorScheme,
+    appBarTheme: AppBarTheme(
+      titleTextStyle: GoogleFonts.syne(
+        fontSize: 16,
+        color: AppColor.whiteColor,
+        fontWeight: FontWeight.bold
+      ),
+      color: colorScheme.brightness==Brightness.light?colorScheme.primary:darkColor.surface,
+      elevation: 0,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: colorScheme.brightness,
+        systemNavigationBarColor: colorScheme.brightness==Brightness.light?colorScheme.primary:darkColor.surface,
 
+      ),
+      iconTheme: IconThemeData(color: AppColor.whiteColor)
+    ),
+    iconTheme: IconThemeData(color: colorScheme.onPrimary),
+    canvasColor: colorScheme.brightness==Brightness.light?AppColor.lightSecondaryBgColor:AppColor.darkSecondaryBgColor,
+    scaffoldBackgroundColor: colorScheme.background,
+    highlightColor: Colors.transparent,
+    focusColor: focusColor,
+    textTheme: TextTheme(
+      titleLarge: GoogleFonts.syne(
+        fontSize: 14,
+        color: colorScheme.brightness==Brightness.light?Color(0x89000000):Color(0x89FFFFFF),
+        
+      ),
+      titleMedium: GoogleFonts.syne(
+        fontSize: 12,
+        color: colorScheme.brightness==Brightness.light?Color(0x89000000):Color(0x89FFFFFF),
+
+      ),
+    ),
+    dividerColor: colorScheme.brightness==Brightness.light?AppColor.greyColor.withOpacity(0.3):AppColor.greyColor.withOpacity(0.3)
   );
 }

@@ -24,7 +24,7 @@ class AppColor{
   //SnackBar Color
   static const helpBlue=Color(0xFF3282B8);
   static const failedRed=Color(0xFFC72C41);
-  static const successGreen=Color(0xFF206AF);
+  static const successGreen=Color(0xFF00FF00);
   static const warningYellow=Color(0xFFFCA652);
 
 
